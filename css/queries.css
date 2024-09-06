@@ -289,6 +289,10 @@ instead 1rem = 1em = 16px */
     height: 32rem;
     grid-row: 1;
   }
+
+  .learn-more{
+    padding: 1.6rem 2.8rem !important;
+  }
 }
 
 /* ******************* */

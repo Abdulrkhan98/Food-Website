@@ -1,10 +1,3 @@
-console.log("Hello world!");
-
-const myName = "Jonas Schmedtmann";
-const h1 = document.querySelector(".heading-primary");
-console.log(myName);
-console.log(h1);
-
 // h1.addEventListener("click", function () {
 //   h1.textContent = myName;
 //   h1.style.backgroundColor = "red";
@@ -17,9 +10,11 @@ const yearEl = document.querySelector(".year");
 const currentYear = new Date().getFullYear();
 yearEl.textContent = currentYear;
 
-///////////////////////////////////////////////////////////
-// Make mobile navigation work
 
+///////////////////////////////////////////////////////////
+// Smooth scrolling animation
+
+// Make mobile navigation work
 const btnNavEl = document.querySelector(".btn-mobile-nav");
 const headerEl = document.querySelector(".header");
 
@@ -27,9 +22,7 @@ btnNavEl.addEventListener("click", function () {
   headerEl.classList.toggle("nav-open");
 });
 
-///////////////////////////////////////////////////////////
 // Smooth scrolling animation
-
 const allLinks = document.querySelectorAll("a:link");
 
 allLinks.forEach(function (link) {
@@ -38,11 +31,12 @@ allLinks.forEach(function (link) {
     const href = link.getAttribute("href");
 
     // Scroll back to top
-    if (href === "#")
+    if (href === "#") {
       window.scrollTo({
         top: 0,
         behavior: "smooth",
       });
+    }
 
     // Scroll to other links
     if (href !== "#" && href.startsWith("#")) {
@@ -50,11 +44,13 @@ allLinks.forEach(function (link) {
       sectionEl.scrollIntoView({ behavior: "smooth" });
     }
 
-    // Close mobile naviagtion
-    if (link.classList.contains("main-nav-link"))
-      headerEl.classList.toggle("nav-open");
+    // Close mobile navigation
+    if (headerEl.classList.contains("nav-open")) {
+      headerEl.classList.remove("nav-open");
+    }
   });
 });
+
 
 ///////////////////////////////////////////////////////////
 // Sticky navigation
